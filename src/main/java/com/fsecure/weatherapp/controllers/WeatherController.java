@@ -3,6 +3,7 @@ package com.fsecure.weatherapp.controllers;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -30,6 +31,24 @@ public class WeatherController {
         }
         return null;
     }
+    //reading JSON from openweather
+    public JSONArray returnWeatherArray() throws JSONException {
+        JSONArray weatherArray = getWeather().getJSONArray("weather");
+        return weatherArray;
+    }
+    public JSONArray returnWind() throws JSONException {
+        JSONArray wind = getWeather().getJSONArray("wind");
+        return wind;
+    }
+
+    public JSONArray returnMain() throws JSONException {
+        JSONArray main = getWeather().getJSONArray("main");
+        return main;
+    }
+    public JSONArray returnSys() throws JSONException {
+        JSONArray sys = getWeather().getJSONArray("sys");
+        return sys;
+    }
 
     public String getCityName() {
         return cityName;
@@ -47,3 +66,4 @@ public class WeatherController {
         this.unit = unit;
     }
 }
+
