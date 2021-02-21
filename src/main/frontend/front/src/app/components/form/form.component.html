@@ -1,0 +1,38 @@
+<form center>
+  <mat-form-field>
+    <mat-label>
+      Podaj miasto
+    </mat-label>
+    <input name="city" type="text" matInput [(ngModel)]="city">
+
+  </mat-form-field>
+  <button mat-button (click)="submit()">sprawdź</button>
+</form>
+
+<div *ngIf="weather">
+  <table class="mat-table">
+    <tbody>
+      <tr>
+        <td>Temperatura aktualna</td>
+        <td>{{weather.main.temp}}°C</td>
+        <td>Temperatura odczuwalna</td>
+        <td>{{weather.main.feels_like}}°C</td>
+        <td>Wilgotność</td>
+        <td></td>
+        <td>{{weather.main.humidity}}%</td>
+        <td>Ciśnienie</td>
+        <td>{{weather.main.pressure}}hPa</td>
+        <td>Najniższa temperatura dzisiaj</td>
+        <td></td>
+        <td>{{weather.main.temp_min}}°C</td>
+        <td>Najwyższa temperatura dzisiaj</td>
+        <td>{{weather.main.temp_max}}°C</td>
+      </tr>
+    </tbody>
+  </table>
+  {{weather.main.temp}}
+
+
+
+
+</div>

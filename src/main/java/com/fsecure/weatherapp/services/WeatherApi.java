@@ -5,19 +5,21 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
+@CrossOrigin
 @RestController
 public class WeatherApi {
 
-    @Value("${apiKey}")
+    @Value("${apikey}")
     private String apiKey;
 
-    @GetMapping("/weather/{city}")
+    @GetMapping("/api/weather/{city}")
     public Object getJson(@PathVariable String city) {
 
         RestTemplate restTemplate = new RestTemplate();
